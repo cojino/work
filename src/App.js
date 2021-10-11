@@ -16,7 +16,7 @@ const App = () => {
     } else alert(" task title should not be empty");
   };
 
-  const deteleTaskById = (idTask) => {
+  const deteleStudentById = (idTask) => {
     if (window.confirm("Are you sure ?") === false) return;
 
     let newlistStudent = [...listStudent];
@@ -25,7 +25,7 @@ const App = () => {
     setlistStudentBackup([...newlistStudent]);
   };
 
-  const filterTaskByTitle = () => {
+  const filterStudentByTitle = () => {
     let query = filterTaskInput.current.value;
     if (query === "") setlistStudent([...listStudentBackup]);
     else {
@@ -45,12 +45,12 @@ const App = () => {
           <input
             type="text"
             placeholder="filter task by title"
-            onKeyUp={filterTaskByTitle}
+            onKeyUp={filterStudentByTitle}
             ref={filterTaskInput}
           />
           <i className="fa fa-search" />
         </div>
-        <ListStudent list={listStudent} onDeleteTask={deteleTaskById} />
+        <ListStudent list={listStudent} onDeleteStudent={deteleStudentById} />
       </div>
     </>
   );
