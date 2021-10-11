@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useRef } from "react";
 import "./App.css";
 import AddStudent from "./components/AddStudent";
@@ -6,20 +7,22 @@ import ListStudent from "./components/ListStudent";
 const App = () => {
   const [listStudent, setlistStudent] = useState([]);
   const [listStudentBackup, setlistStudentBackup] = useState([]);
-  const filterStudentInput = useRef("");
+  const filterTaskInput = useRef("");
 
   const addNewStudent = (newTask) => {
-    if (newStudent !== "") {
+    if (newTask !== "") {
       setlistStudent([...listStudent, newTask]);
       setlistStudentBackup([...listStudentBackup, newTask]);
     } else alert(" task title should not be empty");
   };
+
   const deteleTaskById = (idTask) => {
     if (window.confirm("Are you sure ?") === false) return;
 
-    let newListStudent = [...listStudent];
-    newListStudent = newListStudent.filter((_, index) => index != idStudent);
-    setlistStudent([...newListStudent]);
+    let newlistStudent = [...listStudent];
+    newlistStudent = newlistStudent.filter((_, index) => index !== idTask);
+    setlistStudent([...newlistStudent]);
+    setlistStudentBackup([...newlistStudent]);
   };
 
   const filterTaskByTitle = () => {
@@ -47,7 +50,7 @@ const App = () => {
           />
           <i className="fa fa-search" />
         </div>
-        <ListStudent list={listStudent} onDeleteTask={deteleStudentById} />
+        <ListStudent list={listStudent} onDeleteTask={deteleTaskById} />
       </div>
     </>
   );
