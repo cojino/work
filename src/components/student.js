@@ -1,10 +1,10 @@
 import React from "react";
 
-const AddStudent = ({ title, id, onDeleteStudent }) => {
+const AddStudent = ({ title, id }) => {
   return (
     <li>
       <span>{title}</span>
-      <button onClick={() => onDeleteStudent(id)}>
+      <button>
         <i className="fa fa-trash"></i>
       </button>
     </li>
