@@ -6,22 +6,20 @@ import ListStudent from "./components/ListStudent";
 const App = () => {
   const [listStudent, setlistStudent] = useState([]);
   const [listStudentBackup, setlistStudentBackup] = useState([]);
-  const filterTaskInput = useRef("");
+  const filterStudentInput = useRef("");
 
   const addNewStudent = (newTask) => {
-    if (newTask !== "") {
+    if (newStudent !== "") {
       setlistStudent([...listStudent, newTask]);
       setlistStudentBackup([...listStudentBackup, newTask]);
     } else alert(" task title should not be empty");
   };
-
   const deteleTaskById = (idTask) => {
     if (window.confirm("Are you sure ?") === false) return;
 
-    let newlistStudent = [...listStudent];
-    newlistStudent = newlistStudent.filter((_, index) => index !== idTask);
-    setlistStudent([...newlistStudent]);
-    setlistStudentBackup([...newlistStudent]);
+    let newListStudent = [...listStudent];
+    newListStudent = newListStudent.filter((_, index) => index != idStudent);
+    setlistStudent([...newListStudent]);
   };
 
   const filterTaskByTitle = () => {
@@ -49,7 +47,7 @@ const App = () => {
           />
           <i className="fa fa-search" />
         </div>
-        <ListStudent list={listStudent} onDeleteTask={deteleTaskById} />
+        <ListStudent list={listStudent} onDeleteTask={deteleStudentById} />
       </div>
     </>
   );
