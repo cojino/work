@@ -1,19 +1,8 @@
 import React from "react";
 import AddStudent from "./Student";
 
-const ListStudent = ({ list, onDeleteStudent }) => {
-  return (
-    <ul>
-      {list.map((studentTitle, index) => (
-        <AddStudent
-          key={index}
-          id={index}
-          title={studentTitle}
-          onDeleteStudent={onDeleteStudent}
-        />
-      ))}
-    </ul>
-  );
+const ListStudent = () => {
+  return <ul></ul>;
 };
 
 export default ListStudent;
