@@ -7,13 +7,13 @@ import ListStudent from "./components/ListStudent";
 const App = () => {
   const [listStudent, setlistStudent] = useState([]);
   const [listStudentBackup, setlistStudentBackup] = useState([]);
-  const filterTaskInput = useRef("");
+  const filterStudentInput = useRef("");
 
   const addNewStudent = (newTask) => {
     if (newTask !== "") {
       setlistStudent([...listStudent, newTask]);
       setlistStudentBackup([...listStudentBackup, newTask]);
-    } else alert(" task title should not be empty");
+    } else alert(" student name should not be empty");
   };
 
   const deteleStudentById = (idTask) => {
@@ -26,12 +26,12 @@ const App = () => {
   };
 
   const filterStudentByTitle = () => {
-    let query = filterTaskInput.current.value;
+    let query = filterStudentInput.current.value;
     if (query === "") setlistStudent([...listStudentBackup]);
     else {
       let newlistStudent = [...listStudent];
-      newlistStudent = newlistStudent.filter((titleTask) =>
-        titleTask.includes(query)
+      newlistStudent = newlistStudent.filter((titleStudent) =>
+        titleStudent.includes(query)
       );
       setlistStudent([...newlistStudent]);
     }
@@ -44,9 +44,9 @@ const App = () => {
         <div>
           <input
             type="text"
-            placeholder="filter task by title"
+            placeholder="filter students by title"
             onKeyUp={filterStudentByTitle}
-            ref={filterTaskInput}
+            ref={filterStudentInput}
           />
           <i className="fa fa-search" />
         </div>
