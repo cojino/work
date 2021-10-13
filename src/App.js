@@ -3,16 +3,23 @@ import { useState, useRef } from "react";
 import "./App.css";
 import AddStudent from "./components/AddStudent";
 import ListStudent from "./components/ListStudent";
+import { Student } from "./models/Student";
+//class thing
+const BigStudentList = [new Student(1, "ayman"), new Student(2, "hamza")];
 
 const App = () => {
-  const [listStudent, setlistStudent] = useState([]);
-  const [listStudentBackup, setlistStudentBackup] = useState([]);
+  const [listStudent, setlistStudent] = useState(BigStudentList);
+  const [listStudentBackup, setlistStudentBackup] = useState(BigStudentList);
   const filterStudentInput = useRef("");
 
-  const addNewStudent = (newTask) => {
-    if (newTask !== "") {
-      setlistStudent([...listStudent, newTask]);
-      setlistStudentBackup([...listStudentBackup, newTask]);
+  const addNewStudent = (nameStudent) => {
+    if (nameStudent !== "") {
+      let nameStudentList = [
+        ...listStudent,
+        new Student(listStudent.length + 1, nameStudent),
+      ];
+      setlistStudent([...nameStudentList]);
+      setlistStudentBackup([...nameStudentList]);
     } else alert(" student name should not be empty");
   };
 
@@ -20,7 +27,7 @@ const App = () => {
     if (window.confirm("Are you sure ?") === false) return;
 
     let newlistStudent = [...listStudent];
-    newlistStudent = newlistStudent.filter((_, index) => index !== idTask);
+    newlistStudent = newlistStudent.filter((c) => c.id !== idTask);
     setlistStudent([...newlistStudent]);
     setlistStudentBackup([...newlistStudent]);
   };

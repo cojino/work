@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddStudent = ({ title, id, onDeleteStudent }) => {
+const Student = ({ title, id, onDeleteStudent }) => {
   return (
     <li>
       <span>{title}</span>
@@ -11,4 +11,4 @@ const AddStudent = ({ title, id, onDeleteStudent }) => {
   );
 };
 
-export default AddStudent;
+export default Student;

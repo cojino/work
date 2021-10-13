@@ -1,14 +1,14 @@
 import React from "react";
-import AddStudent from "./student";
+import Student from "./student";
 
 const ListStudent = ({ list, onDeleteStudent }) => {
   return (
     <ul>
-      {list.map((studentTitle, index) => (
-        <AddStudent
-          key={index}
-          id={index}
-          title={studentTitle}
+      {list.map((s) => (
+        <Student
+          key={s.id}
+          id={s.id}
+          title={s.name}
           onDeleteStudent={onDeleteStudent}
         />
       ))}
